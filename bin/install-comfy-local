@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+uv run comfy --skip-prompt install --m-series
+
