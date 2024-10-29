@@ -16,6 +16,10 @@ class ComfyuiService:
         with NamedTemporaryFile(mode="w+", suffix=".json") as tfile:
             content = json.dumps(workflow.content)
             tfile.write(content)
+            # assert that the content is written to the file
+            tfile.seek(0)
+            written_content = tfile.read()
+            assert content == written_content
             cmd = f"comfy run --workflow {tfile.name} --wait --timeout 1200"
             out = subprocess.run(
                 cmd, shell=True, check=False, capture_output=True, text=True
