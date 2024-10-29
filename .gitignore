@@ -19,3 +19,10 @@ wheels/
 tmp/
 
 .vscode
+
+# coverage
+.coverage
+htmlcov
+coverage.xml
+
+*_cache
